@@ -41,8 +41,17 @@ export const projects: ProjectMeta[] = [
     featured: true,
   },
   {
-    slug: "xguard",
+    slug: "torrential",
     index: "02",
+    name: "Torrential",
+    tags: ["WebTorrent", "Electron", "React", "TypeScript", "Node.js"],
+    href: "https://torrential-fawn.vercel.app/en",
+    external: true,
+    featured: false,
+  },
+  {
+    slug: "xguard",
+    index: "03",
     name: "XGuard",
     tags: ["Python", "NLP", "FastAPI", "Machine Learning"],
     href: "https://pavlodarnews.kz/ru/pavlodarskie-studenti-sozdali-veb-platformu-dlya-viyavleniya-podozritelnikh-goszakupok",
@@ -51,7 +60,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     slug: "sports-trainer",
-    index: "03",
+    index: "04",
     name: "AI Sports Trainer",
     tags: ["Flutter", "Python", "Machine Learning", "Mobile"],
     href: "https://pavlodarnews.kz/ru/studenti-iz-pavlodara-za-den-sozdali-platformu-dlya-boytsov-edinoborstv",
@@ -60,7 +69,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     slug: "jobswipe",
-    index: "04",
+    index: "05",
     name: "JobSwipeAI",
     tags: ["Telegram Mini App", "React", "Node.js", "AI"],
     href: "https://kazpravda.kz/n/dvoynoy-intellekt/",

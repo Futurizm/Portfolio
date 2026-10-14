@@ -113,6 +113,13 @@ export const en: Dictionary = {
           "First place among 27 teams from 14 regions of Kazakhstan. Grand prize — 1,000,000 tenge.",
         linkLabel: "Read the article",
       },
+      torrential: {
+        category: "Desktop · Utilities",
+        description: [
+          "A minimalistic desktop torrent client for Windows with no ads and no clutter. It accepts magnet links and .torrent files, supports per-file selection, and shows live speeds, remaining time and peer counts. Pause, verify and separate download/upload limits are built in, sessions survive a restart, and the interface is bilingual.",
+        ],
+        linkLabel: "Visit Torrential",
+      },
     },
   },
   achievements: {

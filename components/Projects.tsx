@@ -1,6 +1,7 @@
 "use client";
 
-import { projects } from "@/lib/content";
+import { Fragment } from "react";
+import { projects, type ProjectMeta } from "@/lib/content";
 import ProjectCard from "./ProjectCard";
 import QuoteBand from "./QuoteBand";
 import Reveal from "./Reveal";
@@ -9,7 +10,14 @@ import { useI18n } from "./LocaleProvider";
 
 export default function Projects() {
   const { dict } = useI18n();
-  const [feature, second, third, last] = projects;
+  const [feature, ...rest] = projects;
+
+  // The first project gets an editorial full-width treatment, the rest are
+  // grouped into pairs. A quote is placed after the first pair.
+  const groups: ProjectMeta[][] = [];
+  for (let i = 0; i < rest.length; i += 2) {
+    groups.push(rest.slice(i, i + 2));
+  }
 
   return (
     <section id="projects" className="section">
@@ -25,20 +33,25 @@ export default function Projects() {
             <ProjectCard project={feature} variant="feature" />
           </Reveal>
 
-          <div className="projects__pair">
-            <Reveal delay={0.05}>
-              <ProjectCard project={second} />
-            </Reveal>
-            <Reveal delay={0.1}>
-              <ProjectCard project={third} />
-            </Reveal>
-          </div>
+          {groups.map((group, groupIndex) => (
+            <Fragment key={groupIndex}>
+              {groupIndex === 1 ? <QuoteBand quoteKey="shipping" /> : null}
 
-          <QuoteBand quoteKey="shipping" />
-
-          <Reveal>
-            <ProjectCard project={last} variant="wide" />
-          </Reveal>
+              {group.length === 1 ? (
+                <Reveal>
+                  <ProjectCard project={group[0]} variant="wide" />
+                </Reveal>
+              ) : (
+                <div className="projects__pair">
+                  {group.map((project, index) => (
+                    <Reveal key={project.slug} delay={index * 0.05}>
+                      <ProjectCard project={project} />
+                    </Reveal>
+                  ))}
+                </div>
+              )}
+            </Fragment>
+          ))}
         </div>
       </div>
     </section>
